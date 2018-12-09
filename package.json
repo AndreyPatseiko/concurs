@@ -1,0 +1,21 @@
+{
+  "name": "concurse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Andrey Patseyko",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.10.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp-jade": "^1.1.0",
+    "gulp-stylus": "^2.7.0"
+  }
+}

@@ -1,0 +1,72 @@
+- var n = 400
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+        title Concurs
+        link(rel='stylesheet', href='./css/styles.css')
+
+    body
+
+        .container  
+            .general         
+                .start-wrapper
+                    - for (var i=1; i<=5; i++) {
+                        .star-center-side
+                    - }
+                    .side
+                        - for (var i=1; i<=3; i++) {
+                            .star-side
+                        - }
+                    .side.back
+                        - for (var i=1; i<=3; i++) {
+                            .star-side
+                        - }
+
+                .second-tree
+                    - for (var j=0; j<=6; j++) {
+                        .row
+                            - for (var i=1; i<=6+j*2; i++) {
+                                .tree-side-el
+                            - } 
+                    - }   
+
+                .second-tree.second
+                    - for (var j=0; j<=4; j++) {
+                        .row
+                            - for (var i=1; i<=6+j*2; i++) {
+                                .tree-side-el
+                            - } 
+                    - }   
+
+                .second-tree.tree
+                    - for (var j=0; j<=3; j++) {
+                        .row
+                            - for (var i=1; i<=6+j*2; i++) {
+                                .tree-side-el
+                            - } 
+                    - }   
+
+                .second-tree.four
+                    - for (var j=0; j<=5; j++) {
+                        .row
+                            - for (var i=1; i<=6+j*2; i++) {
+                                .tree-side-el
+                            - } 
+                    - }   
+
+                .second-tree.five
+                    - for (var j=0; j<=5; j++) {
+                        .row
+                            - for (var i=1; i<=6+j*2; i++) {
+                                .tree-side-el
+                            - } 
+                    - }   
+
+
+
+
+          
