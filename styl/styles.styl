@@ -11,7 +11,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	background: #8492da;
+	background: whitesmoke;
 }
 
 r = 17px;
@@ -133,21 +133,23 @@ starColor = gold;
 // ──── Floor ─────────────────────────────────────────────────────────────────────────────
 .general {
 	width: 100%;
-	height: 50vh;
-	background: #565c86;
+	height: 100%;
+	background: whitesmoke;
+	border: 1px solid red;
 	position: absolute;
 	bottom: 0;
 	transform-style: preserve-3d;
+	transform: rotateX(58deg);
 }
 
 // ──── tree ──────────────────────────────────────────────────────────────────────────────
 @keyframes rotate {
 	0% {
-		transform: rotateX(70deg) rotateY(0) rotateZ(0deg) translateZ(0px);
+		transform: rotateY(0) rotateZ(0deg) translateZ(0px);
 	}
 
 	100% {
-		transform: rotateX(70deg) rotateY(0) rotateZ(360deg) translateZ(0px);
+		transform: rotateY(0) rotateZ(360deg) translateZ(0px);
 	}
 }
 
@@ -160,6 +162,7 @@ starColor = gold;
 .second-tree {
 	// border: 1px solid red;
 	position: absolute;
+	top: calc(50vw - 150px);
 	left: calc(50vw - 100px);
 	animation-name: rotate;
 	animation-duration: animationSpeed s;
@@ -170,6 +173,22 @@ starColor = gold;
 	height: 200px;
 	margin: 0 auto;
 	transform-style: preserve-3d;
+
+	&:hover {
+		cursor: pointer;
+
+		.row:nth-of-type(1) {
+			.tree-side-el {
+				box-shadow: 0 0 12px red;
+			}
+		}
+
+		.row:nth-of-type(2) {
+			.tree-side-el {
+				box-shadow: 0 0 12px blue;
+			}
+		}
+	}
 
 	&.second {
 		top: 100px;
@@ -205,6 +224,22 @@ starColor = gold;
 	height: 0;
 	width: 0;
 	left: 12px;
+	transition: box-shadow 1s linear;
+
+	&:after {
+		width: 37px;
+		height: 6px;
+		box-shadow: 0 5px 18px rgba(255, 255, 255, 0.8);
+		background: transparent;
+		position: absolute;
+		bottom: 0;
+		content: '';
+		display: block;
+		bottom: -55px;
+		left: -15px;
+		transform: translateZ(-5px);
+		animation: blinkLight 5s linear infinite;
+	}
 }
 
 .row {
@@ -227,6 +262,10 @@ starColor = gold;
 						transform: rotateX(-90deg) rotateY((i * 360 / (n + j * 2)) deg) translateZ(r + j * 7) rotateX(35deg);
 					}
 				}
+
+				&:after {
+					bottom: (-59 - j * 18)px;
+				}
 			}
 		}
 	}
@@ -243,5 +282,51 @@ starColor = gold;
 
 	100% {
 		border-bottom-color: #034203;
+	}
+}
+
+@keyframes blinkLight {
+	0% {
+		box-shadow: 0 5px 18px rgba(255, 0, 0, 0.8);
+	}
+
+	50% {
+		box-shadow: 0 5px 18px rgba(0, 255, 255, 0.8);
+	}
+
+	100% {
+		box-shadow: 0 5px 18px rgba(255, 255, 0, 0.8);
+	}
+}
+
+// ──── Drift ─────────────────────────────────────────────────────────────────────────────
+.drift-wrapper {
+	display: none;
+	width: 40px;
+	height: 40px;
+	top: 100px;
+	position: absolute;
+	transform: rotateZ(55deg) translateZ(17px);
+	transform-style: preserve-3d;
+
+	.drift-side {
+		transform-style: preserve-3d;
+		position: absolute;
+		border-bottom: 40px solid white;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+
+		for l in (1 .. 4) {
+			&:nth-of-type({l}) {
+				border-bottom-color: rgb(255 - l * 5, 255 - l * 5, 255 - l * 5);
+				transform: rotateX(-90deg) rotateY((l * 90) deg) translateZ(10px) rotateX(30deg);
+			}
+		}
+	}
+
+	&:nth-of-type(2) {
+		top: 120px;
+		right: 150px;
+		transform: rotateZ(12deg) translateZ(5px) scale3d(12, 24, 0.3) translateY(11px);
 	}
 }
