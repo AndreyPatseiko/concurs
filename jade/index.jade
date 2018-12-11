@@ -32,9 +32,20 @@ html(lang='en')
                             - } 
                     - }   
 
-                - for (var k=0; k<=5; k++) {
-                    .drift-wrapper
-                        - for (var z=1; z<=4; z++) {
-                            .drift-side
-                        - } 
-                - } 
+                //- - for (var k=0; k<=5; k++) {
+                //-     .drift-wrapper
+                //-         - for (var z=1; z<=4; z++) {
+                //-             .drift-side
+                //-         - } 
+                //- - } 
+
+                - for (var st=1; st<=180; st++) {
+                    .snow-start-spline
+                        - for (var g=1; g<=8; g++) {
+                            .snow-start-el
+                                .line
+                                    - for (var x=1; x<=6; x++) {
+                                        div
+                                    - }
+                        - }
+                -}
