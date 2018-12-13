@@ -11,18 +11,18 @@ html(lang='en')
 
         .container  
             .general         
-                //- .start-wrapper
-                //-     - for (var i=1; i<=5; i++) {
-                //-         .star-center-side
-                //-     - }
-                //-     .side
-                //-         - for (var i=1; i<=3; i++) {
-                //-             .star-side
-                //-         - }
-                //-     .side.back
-                //-         - for (var i=1; i<=3; i++) {
-                //-             .star-side
-                //-         - }
+                .start-wrapper
+                    - for (var i=1; i<=5; i++) {
+                        .star-center-side
+                    - }
+                    .side
+                        - for (var i=1; i<=3; i++) {
+                            .star-side
+                        - }
+                    .side.back
+                        - for (var i=1; i<=3; i++) {
+                            .star-side
+                        - }
 
                 .second-tree
                     - for (var j=0; j<=6; j++) {
@@ -32,14 +32,8 @@ html(lang='en')
                             - } 
                     - }   
 
-                //- - for (var k=0; k<=5; k++) {
-                //-     .drift-wrapper
-                //-         - for (var z=1; z<=4; z++) {
-                //-             .drift-side
-                //-         - } 
-                //- - } 
 
-                - for (var st=1; st<=180; st++) {
+                - for (var st=1; st<=200; st++) {
                     .snow-start-spline
                         - for (var g=1; g<=8; g++) {
                             .snow-start-el

@@ -22,23 +22,23 @@ animationSpeed = 15;
 // ──── Start ─────────────────────────────────────────────────────────────────────────────
 @keyframes startAnim {
 	0% {
-		transform: rotateY(360deg) translateY(-310px) rotateZ(0deg);
+		transform: rotateY(180deg) rotateZ(360deg) translateZ(-360px) rotateX(90deg) scale(0.6);
 	}
 
 	25% {
-		transform: rotateY(270deg) translateY(-315px) rotateZ(-10deg);
+		transform: rotateY(180deg) rotateZ(270deg) translateZ(-360px) rotateX(90deg) scale(0.6);
 	}
 
 	50% {
-		transform: rotateY(180deg) translateY(-310px) rotateZ(0deg);
+		transform: rotateY(180deg) rotateZ(180deg) translateZ(-360px) rotateX(90deg) scale(0.6);
 	}
 
 	75% {
-		transform: rotateY(90deg) translateY(-305px) rotateZ(10deg);
+		transform: rotateY(180deg) rotateZ(90deg) translateZ(-360px) rotateX(90deg) scale(0.6);
 	}
 
 	100% {
-		transform: rotateY(0deg) translateY(-310px) rotateZ(0deg);
+		transform: rotateY(180deg) rotateZ(0deg) translateZ(-360px) rotateX(90deg) scale(0.6);
 	}
 }
 
@@ -46,18 +46,17 @@ startSize = 50px;
 starColor = gold;
 
 .start-wrapper {
-	top: 40px;
 	position: absolute;
 	animation-name: startAnim;
 	animation-duration: animationSpeed s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
-	// transform: rotateY(360deg) translateY(0px) rotateZ(0deg);
+	transform: rotateY(180deg) rotateZ(0deg) translateZ(-360px) rotateX(90deg) scale(0.6);
 	width: startSize * 1.85;
 	height: startSize * 1.85;
 	transform-style: preserve-3d;
 	left: calc(50vw - 50px);
-	top: 0;
+	top: calc(50vw - 100px);
 }
 
 .side {
@@ -65,6 +64,7 @@ starColor = gold;
 	height: 100%;
 	position: absolute;
 	transform: translateZ(-10px);
+	transform-style: preserve-3d;
 
 	&.back {
 		transform: translateZ(10px);
@@ -75,6 +75,7 @@ starColor = gold;
 	position: absolute;
 	width: 0;
 	height: 0;
+	transform-style: preserve-3d;
 
 	&:nth-of-type(1) {
 		top: 32px;
@@ -283,38 +284,6 @@ starColor = gold;
 	}
 }
 
-// ──── Drift ─────────────────────────────────────────────────────────────────────────────
-.drift-wrapper {
-	display: none;
-	width: 40px;
-	height: 40px;
-	top: 100px;
-	position: absolute;
-	transform: rotateZ(55deg) translateZ(17px);
-	transform-style: preserve-3d;
-
-	.drift-side {
-		transform-style: preserve-3d;
-		position: absolute;
-		border-bottom: 40px solid white;
-		border-left: 20px solid transparent;
-		border-right: 20px solid transparent;
-
-		for l in (1 .. 4) {
-			&:nth-of-type({l}) {
-				border-bottom-color: rgb(255 - l * 5, 255 - l * 5, 255 - l * 5);
-				transform: rotateX(-90deg) rotateY((l * 90) deg) translateZ(10px) rotateX(30deg);
-			}
-		}
-	}
-
-	&:nth-of-type(2) {
-		top: 120px;
-		right: 150px;
-		transform: rotateZ(12deg) translateZ(5px) scale3d(12, 24, 0.3) translateY(11px);
-	}
-}
-
 // ──── Snow start ────────────────────────────────────────────────────────────────────────
 startSize = 20;
 startColor = rgba(0, 55, 255, 0.6);
@@ -335,9 +304,14 @@ random(min, max) {
 		opacity: 0.6;
 	}
 
+	99% {
+		transform: translate3d(0, 0, 0px) rotateX(80deg) rotateZ(35deg);
+		opacity: 0.3;
+	}
+
 	100% {
 		transform: translate3d(0, 0, -1px) rotateX(80deg) rotateZ(35deg);
-		opacity: 0.3;
+		opacity: 0;
 	}
 }
 
@@ -353,10 +327,10 @@ random(min, max) {
 	animation-iteration-count: infinite;
 	transform-style: preserve-3d;
 
-	for spl in (1 .. 180) {
+	for spl in (1 .. 200) {
 		&:nth-of-type({spl}) {
-			top: random(1, 1000) px;
-			right: random(1, 1000) px;
+			top: random(0, 1000) px;
+			right: random(0, 100) vw;
 			animation-delay: random(5, 20) s;
 			animation-duration: random(5, 20) s;
 			width: random(5, 20) px;
